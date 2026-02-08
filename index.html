@@ -14,7 +14,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -27,12 +27,11 @@
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="Ir al inicio">
-  <img class="brand__logo" src="assets/logo-inclutalk.png" alt="IncluTalk" />
-  <span class="brand__text">
-    <span class="brand__name">Inclu<span>Talk</span></span>
-  </span>
-</a>
-
+        <img class="brand__logo" src="assets/logo-inclutalk.png" alt="IncluTalk" />
+        <span class="brand__text">
+          <span class="brand__name">Inclu<span>Talk</span></span>
+        </span>
+      </a>
 
       <nav class="nav" aria-label="Navegación principal">
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
@@ -57,12 +56,12 @@
     <section class="hero" aria-label="Sección principal">
       <div class="container hero__grid">
         <div class="hero__content">
-          <p class="badge">By<strong>Diamond Impact</strong></p>
+          <p class="badge">By <strong>Diamond Impact</strong> • Software de accesibilidad</p>
           <h1>Atención inclusiva en ventanilla para <span class="accent">personas no oyentes</span></h1>
           <p class="hero__lead">
-            IncluTalk es un <strong>software</strong> para hospitales, bancos y entidades públicas que facilita la comunicación
-            mediante <strong>texto claro</strong>, <strong>apoyos visuales</strong> y <strong>respuestas guiadas</strong>.
-            Sin intérpretes, sin fricción.
+            IncluTalk es un <strong>software web</strong> para hospitales, bancos y entidades públicas que habilita comunicación inclusiva
+            mediante <strong>voz a texto</strong> (para la persona no oyente) y <strong>lenguaje de señas a texto</strong> (con cámara),
+            con opción de <strong>texto a voz</strong> para el personal. La institución usa su propio equipo (PC/tablet + cámara/micrófono).
           </p>
 
           <div class="hero__cta">
@@ -71,18 +70,18 @@
           </div>
 
           <ul class="hero__stats" aria-label="Resumen de beneficios">
-            <li><strong>1</strong><span>tablet por ventanilla</span></li>
-            <li><strong>B2B</strong><span>licencia por punto</span></li>
+            <li><strong>SaaS</strong><span>licencia del software</span></li>
+            <li><strong>Multicanal</strong><span>voz ⇄ LSP ⇄ texto</span></li>
             <li><strong>Impacto</strong><span>accesibilidad real</span></li>
           </ul>
         </div>
 
         <div class="hero__visual">
-  <figure class="hero__photo">
-    <img src="assets/inclutalk-demo.jpg" alt="Demostración de IncluTalk en ventanilla: texto claro, opciones guiadas y confirmación visual." />
-  </figure>
-  <div class="hero__glow" aria-hidden="true"></div>
-</div>
+          <figure class="hero__photo">
+            <img src="assets/inclutalk-demo.jpg" alt="Demostración de IncluTalk en ventanilla: texto claro, opciones guiadas y confirmación visual." />
+          </figure>
+          <div class="hero__glow" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
@@ -120,29 +119,29 @@
         <div class="section__head">
           <h2>La solución: IncluTalk</h2>
           <p>
-            Un sistema simple y confiable para ventanillas: convierte la voz del personal en mensajes claros con apoyo visual y permite
-            que la persona no oyente responda con opciones guiadas o texto libre.
+            Un software simple y confiable para atención al público: convierte la voz del personal en texto claro para la persona no oyente,
+            interpreta lenguaje de señas (LSP) a texto mediante la cámara y devuelve la respuesta al personal en texto y, opcionalmente, en voz.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card card--feature">
-            <h3>Texto claro + visual</h3>
-            <p>Mensajes cortos, legibles y accesibles con íconos para reducir ambigüedad.</p>
+            <h3>Voz del personal → Texto claro</h3>
+            <p>El personal habla y el sistema muestra texto grande y legible para el usuario.</p>
             <ul class="list">
-              <li>Tipografía grande y alto contraste</li>
-              <li>Lenguaje simplificado</li>
-              <li>Interfaz accesible y rápida</li>
+              <li>Reconocimiento de voz (STT)</li>
+              <li>Texto claro y accesible</li>
+              <li>Confirmación antes de enviar</li>
             </ul>
           </div>
 
           <div class="card card--feature">
-            <h3>Respuestas guiadas + texto libre</h3>
-            <p>Estructura el diálogo sin limitar la expresión: opciones frecuentes y un campo para escribir.</p>
+            <h3>Señas (LSP) → Texto → Voz</h3>
+            <p>El usuario responde en LSP usando la cámara. El sistema interpreta a texto y lo puede leer en voz para el personal.</p>
             <ul class="list">
-              <li>Botones predefinidos por contexto</li>
-              <li>Confirmación visual por turnos</li>
-              <li>Sesiones temporales (privacidad)</li>
+              <li>Captura por turnos con botón iniciar/detener</li>
+              <li>Validación: confirmar / repetir / escribir</li>
+              <li>Texto a voz (TTS) opcional</li>
             </ul>
           </div>
         </div>
@@ -154,7 +153,7 @@
       <div class="container">
         <div class="section__head">
           <h2>Cómo funciona</h2>
-          <p>Un flujo por turnos con un solo dispositivo por ventanilla.</p>
+          <p>Flujo por turnos en una web app: voz → texto, LSP → texto y texto → voz.</p>
         </div>
 
         <ol class="steps">
@@ -162,34 +161,37 @@
             <span class="step__num">1</span>
             <div>
               <h3>El personal habla</h3>
-              <p>IncluTalk detecta el mensaje y lo presenta como texto claro con apoyo visual.</p>
+              <p>Presiona "Hablar" y la plataforma convierte la voz a texto claro en pantalla.</p>
             </div>
           </li>
+
           <li class="step">
             <span class="step__num">2</span>
             <div>
-              <h3>El cliente responde</h3>
-              <p>Selecciona opciones guiadas o escribe si necesita mayor detalle.</p>
+              <h3>Confirma el mensaje</h3>
+              <p>El personal revisa el texto y presiona "Confirmar" para continuar al siguiente turno.</p>
             </div>
           </li>
+
           <li class="step">
             <span class="step__num">3</span>
             <div>
-              <h3>Confirmación</h3>
-              <p>El sistema muestra un resumen visible para ambos, reduciendo errores y repeticiones.</p>
+              <h3>El usuario responde en LSP</h3>
+              <p>Se activa la cámara. Presiona "Iniciar señas", realiza señas y luego "Detener" para interpretar a texto.</p>
             </div>
           </li>
+
           <li class="step">
             <span class="step__num">4</span>
             <div>
-              <h3>Se completa la atención</h3>
-              <p>Al cerrar la sesión, se limpia la pantalla y se conservan solo métricas agregadas (opcional).</p>
+              <h3>El personal recibe la respuesta</h3>
+              <p>La respuesta se muestra en texto y puede reproducirse en voz (TTS). Luego el personal vuelve a responder.</p>
             </div>
           </li>
         </ol>
 
         <div class="callout">
-          <p><strong>Nota:</strong> IncluTalk no busca reemplazar intérpretes. Reduce la brecha donde hoy no existe accesibilidad en ventanilla.</p>
+          <p><strong>Nota:</strong> IncluTalk es un software (SaaS). La institución utiliza su propio equipo con cámara y micrófono. El MVP incluye respaldo de escritura para asegurar accesibilidad y confiabilidad.</p>
         </div>
       </div>
     </section>
@@ -242,7 +244,7 @@
           </div>
           <div class="card">
             <h3>Integración</h3>
-            <p>IncluTalk puede operar como herramienta independiente o integrarse a procesos existentes mediante mejoras futuras.</p>
+            <p>IncluTalk funciona como herramienta web independiente y puede integrarse a procesos existentes mediante mejoras futuras (reportes, analítica o integración con sistemas internos).</p>
           </div>
         </div>
       </div>
@@ -257,15 +259,15 @@
 
         <div class="grid-3">
           <figure class="quote">
-            <blockquote>“Quiero poder hacer mis trámites sin depender de otra persona.”</blockquote>
+            <blockquote>"Quiero poder hacer mis trámites sin depender de otra persona."</blockquote>
             <figcaption>Usuario no oyente (insight)</figcaption>
           </figure>
           <figure class="quote">
-            <blockquote>“Necesitamos una solución práctica que no requiera intérpretes en cada ventanilla.”</blockquote>
+            <blockquote>"Necesitamos una solución práctica que no requiera intérpretes en cada ventanilla."</blockquote>
             <figcaption>Personal de atención (insight)</figcaption>
           </figure>
           <figure class="quote">
-            <blockquote>“La accesibilidad debería ser parte de la infraestructura de servicio.”</blockquote>
+            <blockquote>"La accesibilidad debería ser parte de la infraestructura de servicio."</blockquote>
             <figcaption>Institución (insight)</figcaption>
           </figure>
         </div>
@@ -281,6 +283,22 @@
         </div>
 
         <div class="faq" data-accordion>
+          <button class="faq__q" aria-expanded="false">
+            ¿IncluTalk incluye tablets o equipos?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a" hidden>
+            <p>No. IncluTalk se vende como software (SaaS). La institución utiliza sus propios equipos (PC/laptop/tablet) con cámara y micrófono.</p>
+          </div>
+
+          <button class="faq__q" aria-expanded="false">
+            ¿Cómo funciona la traducción de lenguaje de señas?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a" hidden>
+            <p>El usuario responde en LSP frente a la cámara por turnos (iniciar/detener). El sistema interpreta a texto y ofrece confirmar, repetir o escribir como respaldo.</p>
+          </div>
+
           <button class="faq__q" aria-expanded="false">
             ¿IncluTalk reemplaza a intérpretes?
             <span class="faq__icon" aria-hidden="true"></span>
@@ -302,7 +320,7 @@
             <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__a" hidden>
-            <p>Por defecto, nada sensible. Se recomienda guardar solo métricas agregadas (p.ej., número de atenciones y duración promedio).</p>
+            <p>Por defecto no se almacena audio ni video. Se recomienda conservar solo métricas agregadas (duración, cantidad de atenciones) si la institución lo solicita.</p>
           </div>
 
           <button class="faq__q" aria-expanded="false">
@@ -323,62 +341,141 @@
           <div class="cta__text">
             <h2>Solicita una demo de IncluTalk</h2>
             <p>Cuéntanos tu institución y el tipo de atención. Te respondemos para coordinar un piloto.</p>
-            <p class="small muted">*Formulario de ejemplo (puedes conectarlo a Google Forms o backend luego).</p>
+            <p class="small muted">Completa el formulario y nos pondremos en contacto contigo en breve.</p>
           </div>
 
-          <form class="form" action="https://formsubmit.co/7bb6e2d4806f99891a50792ec7959e66" method="POST">
-  <input type="hidden" name="_subject" value="Nuevo lead - IncluTalk (Landing)">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_captcha" value="false">
-  <!-- opcional: redirigir a una página de gracias -->
-  <!-- <input type="hidden" name="_next" value="https://tu-dominio.com/gracias.html"> -->
+<form class="form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Configuración FormSubmit.co -->
+               <input type="hidden" name="access_key" value="8d6eef27-f166-405f-b13f-2dfca4593555">
+            <input type="hidden" name="_subject" value="🚀 Nuevo lead - IncluTalk (Landing)">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://tu-dominio.com/gracias.html">
+            
+            <label>
+              Nombre y apellido
+              <input name="Nombre" type="text" required minlength="2" placeholder="Ej. Juan Pérez" />
+            </label>
 
-  <label>
-    Nombre y apellido
-    <input name="name" type="text" required minlength="2" placeholder="Ej. Juan Pérez" />
-  </label>
+            <label>
+              Institución
+              <input name="Institución" type="text" required minlength="2" placeholder="Ej. Hospital / Banco / Municipalidad" />
+            </label>
 
-  <label>
-    Institución
-    <input name="org" type="text" required minlength="2" placeholder="Ej. Hospital / Banco / Municipalidad" />
-  </label>
+            <label>
+              Correo
+              <input name="Correo" type="email" required placeholder="correo@institucion.pe" />
+            </label>
 
-  <label>
-    Correo
-    <input name="email" type="email" required placeholder="correo@institucion.pe" />
-  </label>
+            <label>
+              Tipo de atención
+              <select name="Tipo_de_atención" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option>Hospital / salud</option>
+                <option>Banco / financiero</option>
+                <option>Entidad pública</option>
+                <option>Educación</option>
+                <option>Otro</option>
+              </select>
+            </label>
 
-  <label>
-    Tipo de atención
-    <select name="type" required>
-      <option value="" selected disabled>Selecciona una opción</option>
-      <option>Hospital / salud</option>
-      <option>Banco / financiero</option>
-      <option>Entidad pública</option>
-      <option>Educación</option>
-      <option>Otro</option>
-    </select>
-  </label>
+            <label>
+              Mensaje (opcional)
+              <textarea name="Mensaje" rows="3" placeholder="¿Qué problema quieres resolver primero?"></textarea>
+            </label>
 
-  <label>
-    Mensaje (opcional)
-    <textarea name="message" rows="3" placeholder="¿Qué problema quieres resolver primero?"></textarea>
-  </label>
-
-  <button class="btn btn--primary btn--block" type="submit">Enviar</button>
-<input type="hidden" name="_next" value="http://127.0.0.1:5500/#contacto">
-
-
-</form>
+            <button class="btn btn--primary btn--block" type="submit">Enviar solicitud</button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER MEJORADO -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <p class="small">© <span id="year"></span> IncluTalk • Diamond Impact</p>
-      <a class="small" href="#top">Volver arriba ↑</a>
+    <div class="container">
+      <div class="footer__top">
+        <!-- Columna 1: Marca y descripción -->
+        <div class="footer__brand">
+          <a class="brand" href="#top" aria-label="Ir al inicio">
+            <img class="brand__logo" src="assets/logo-inclutalk.png" alt="IncluTalk" />
+            <span class="brand__text">
+              <span class="brand__name">Inclu<span>Talk</span></span>
+            </span>
+          </a>
+          <p class="footer__desc">
+            Software de atención inclusiva que conecta personas no oyentes con servicios públicos y privados mediante tecnología accesible.
+          </p>
+          <ul class="footer__social">
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:diamondimpact.pe@gmail.com" aria-label="Email">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 2: Producto -->
+        <div class="footer__col">
+          <h4>Producto</h4>
+          <ul class="footer__links">
+            <li><a href="#solucion">Solución</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#casos">Casos de uso</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Empresa -->
+        <div class="footer__col">
+          <h4>Empresa</h4>
+          <ul class="footer__links">
+            <li><a href="#problema">Nuestro propósito</a></li>
+            <li><a href="#testimonios">Impacto social</a></li>
+            <li><a href="mailto:diamondimpact.pe@gmail.com">Contacto</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Recursos -->
+        <div class="footer__col">
+          <h4>Recursos</h4>
+          <ul class="footer__links">
+            <li><a href="#contacto">Solicitar demo</a></li>
+            <li><a href="mailto:diamondimpact.pe@gmail.com">Soporte</a></li>
+            <li><a href="#faq">Documentación</a></li>
+            <li><a href="#top">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom: Copyright y legal -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © <span id="year"></span> IncluTalk by Diamond Impact. Todos los derechos reservados.
+        </p>
+        <ul class="footer__legal">
+          <li><a href="#top">Privacidad</a></li>
+          <li><a href="#top">Términos</a></li>
+          <li><a href="#top">Accesibilidad</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 

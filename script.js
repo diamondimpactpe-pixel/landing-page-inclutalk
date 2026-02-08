@@ -1,7 +1,7 @@
 // Año footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Menú móvil
+// Menú móvil con animación mejorada
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 
@@ -18,20 +18,33 @@ navMenu?.addEventListener("click", (e) => {
   navToggle.setAttribute("aria-expanded", "false");
 });
 
-// FAQ accordion (accesible)
+// Cerrar menú al hacer click fuera
+document.addEventListener("click", (e) => {
+  if (!navToggle || !navMenu) return;
+  if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+    navMenu.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+});
+
+// FAQ accordion (accesible y mejorado)
 const faq = document.querySelector("[data-accordion]");
 if (faq) {
   const questions = faq.querySelectorAll(".faq__q");
   questions.forEach((btn) => {
     btn.addEventListener("click", () => {
       const expanded = btn.getAttribute("aria-expanded") === "true";
-      // Cierra todos (opcional: modo single-open)
+      
+      // Cierra todos (modo single-open - opcional: comentar para multi-open)
       questions.forEach((b) => {
-        b.setAttribute("aria-expanded", "false");
-        const ans = b.nextElementSibling;
-        if (ans) ans.hidden = true;
+        if (b !== btn) {
+          b.setAttribute("aria-expanded", "false");
+          const ans = b.nextElementSibling;
+          if (ans) ans.hidden = true;
+        }
       });
-      // Abre el seleccionado
+      
+      // Toggle el seleccionado
       btn.setAttribute("aria-expanded", String(!expanded));
       const answer = btn.nextElementSibling;
       if (answer) answer.hidden = expanded;
@@ -39,34 +52,85 @@ if (faq) {
   });
 }
 
-// Form demo (validación básica frontend)
-const leadForm = document.getElementById("leadForm");
-const formMsg = document.getElementById("formMsg");
+// Smooth scroll mejorado para navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#top' || href === '#') return;
+    
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-function setMsg(text, type) {
-  formMsg.textContent = text;
-  formMsg.className = `form__msg ${type}`;
-}
-
-leadForm?.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const data = new FormData(leadForm);
-  const name = String(data.get("name") || "").trim();
-  const org = String(data.get("org") || "").trim();
-  const email = String(data.get("email") || "").trim();
-  const type = String(data.get("type") || "").trim();
-
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if (name.length < 2) return setMsg("Por favor, ingresa tu nombre.", "err");
-  if (org.length < 2) return setMsg("Por favor, ingresa tu institución.", "err");
-  if (!emailOk) return setMsg("Por favor, ingresa un correo válido.", "err");
-  if (!type) return setMsg("Selecciona el tipo de atención.", "err");
-
-  // Aquí podrías enviar a Google Forms / API:
-  // fetch("/api/leads", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({name, org, email, type}) })
-
-  setMsg("¡Listo! Te contactaremos para coordinar la demo.", "ok");
-  leadForm.reset();
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
+
+// Animación de aparición al hacer scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Aplicar animación a secciones
+document.querySelectorAll('.card, .step, .quote').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// Header scroll effect
+let lastScroll = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.style.boxShadow = '0 4px 20px rgba(11,28,44,.08)';
+  } else {
+    header.style.boxShadow = '0 2px 10px rgba(11,28,44,.04)';
+  }
+  
+  lastScroll = currentScroll;
+});
+
+// Form validation mejorada
+const forms = document.querySelectorAll('form');
+forms.forEach(form => {
+  form.addEventListener('submit', function(e) {
+    const button = this.querySelector('button[type="submit"]');
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Enviando...';
+      
+      // Si hay error, rehabilitar después de 3 segundos
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = 'Enviar solicitud';
+      }, 3000);
+    }
+  });
+});
+
+// Console message
+console.log('%c🚀 IncluTalk by Diamond Impact', 'font-size: 20px; font-weight: bold; color: #2F8FCC;');
+console.log('%cSoftware de atención inclusiva para personas no oyentes', 'font-size: 12px; color: #8BC53F;');
+console.log('%cContacto: diamondimpact.pe@gmail.com', 'font-size: 12px; color: #5a6b7a;');
