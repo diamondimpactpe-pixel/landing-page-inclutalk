@@ -132,6 +132,3 @@
 
 **Email:** diamondimpact.pe@gmail.com
 
----
-
-**Desarrollado con ❤️ para Diamond Impact**
