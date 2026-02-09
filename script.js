@@ -35,7 +35,7 @@ if (faq) {
     btn.addEventListener("click", () => {
       const expanded = btn.getAttribute("aria-expanded") === "true";
       
-      // Cierra todos (modo single-open - opcional: comentar para multi-open)
+      // Cierra todos (modo single-open)
       questions.forEach((b) => {
         if (b !== btn) {
           b.setAttribute("aria-expanded", "false");
@@ -112,25 +112,74 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 
-// Form validation mejorada
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-  form.addEventListener('submit', function(e) {
+// ============================================
+// WEB3FORMS - CÓDIGO CRÍTICO PARA FORMULARIO
+// ============================================
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); // CRÍTICO: Evita que recargue la página
+    
     const button = this.querySelector('button[type="submit"]');
-    if (button) {
-      button.disabled = true;
-      button.textContent = 'Enviando...';
+    const originalText = button.textContent;
+    
+    // Deshabilitar botón y mostrar estado de carga
+    button.disabled = true;
+    button.textContent = 'Enviando...';
+    formMessage.style.display = 'none';
+    
+    try {
+      const formData = new FormData(this);
       
-      // Si hay error, rehabilitar después de 3 segundos
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = 'Enviar solicitud';
-      }, 3000);
+      // Enviar a Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      console.log('Respuesta de Web3Forms:', data); // Para debugging
+      
+      if (data.success) {
+        // Éxito - mostrar mensaje verde
+        formMessage.textContent = '✅ ¡Mensaje enviado! Te contactaremos pronto.';
+        formMessage.className = 'form__msg ok';
+        formMessage.style.display = 'block';
+        this.reset();
+        
+        // Scroll suave al mensaje
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        // Error del servidor
+        throw new Error(data.message || 'Error al enviar');
+      }
+    } catch (error) {
+      // Error - mostrar mensaje rojo
+      console.error('Error en formulario:', error);
+      formMessage.textContent = '❌ Hubo un error. Por favor intenta de nuevo.';
+      formMessage.className = 'form__msg err';
+      formMessage.style.display = 'block';
+    } finally {
+      // Rehabilitar botón
+      button.disabled = false;
+      button.textContent = originalText;
     }
   });
-});
+}
+
+// Limpiar mensaje de éxito al empezar a escribir de nuevo
+if (contactForm) {
+  contactForm.addEventListener('input', () => {
+    if (formMessage && formMessage.classList.contains('ok')) {
+      formMessage.style.display = 'none';
+    }
+  });
+}
 
 // Console message
 console.log('%c🚀 IncluTalk by Diamond Impact', 'font-size: 20px; font-weight: bold; color: #2F8FCC;');
-console.log('%cSoftware de atención inclusiva para personas no oyentes', 'font-size: 12px; color: #8BC53F;');
+console.log('%cSoftware de atención inclusiva para personas con discapacidad auditiva y/o del habla', 'font-size: 12px; color: #8BC53F;');
 console.log('%cContacto: diamondimpact.pe@gmail.com', 'font-size: 12px; color: #5a6b7a;');
